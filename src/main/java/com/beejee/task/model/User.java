@@ -17,6 +17,12 @@ import java.util.Set;
 @Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {
 
+    // TODO
+
+    // implement user with roles (many to many relationship)
+    // roles: ADMIN, USER
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
