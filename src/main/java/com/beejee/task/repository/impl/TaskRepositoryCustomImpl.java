@@ -54,7 +54,8 @@ public class TaskRepositoryCustomImpl implements TaskRepositoryCustom {
         List<BooleanExpression> conditions = new ArrayList<>();
 
         if (StringUtils.isNotEmpty(searchModel.getBody())) {
-            BooleanExpression cond1 = qTask.body.startsWithIgnoreCase(searchModel.getBody());
+            conditions.add(qTask.body.startsWithIgnoreCase(searchModel.getBody()));
+            //BooleanExpression cond1 = qTask.body.startsWithIgnoreCase(searchModel.getBody());
         }
 
         if (searchModel.getStatus() != null) {

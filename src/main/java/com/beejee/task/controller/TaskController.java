@@ -4,6 +4,7 @@ package com.beejee.task.controller;
 import com.beejee.task.bean.TaskBean;
 import com.beejee.task.bean.mapping.TaskMapperFacade;
 import com.beejee.task.model.Task;
+import com.beejee.task.model.search.TaskSearchModel;
 import com.beejee.task.service.TaskService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -78,9 +80,21 @@ public class TaskController {
         return taskBeans;
     }
 
+    @ApiOperation(value = "View a list of available tasks with pagination (page size is 3) ", response = List.class)
     @GetMapping("/listwithpagination")
     public List<TaskBean> allTasksList(Pageable pageable) {
         List<Task> tasks = taskService.findAllPageable(pageable);
+        List<TaskBean> taskBeans = new ArrayList<>(tasks.size());
+        for (Task task : tasks) {
+            taskBeans.add(taskMapperFacade.getTaskBean(task));
+        }
+        return taskBeans;
+    }
+
+    @ApiOperation(value = "Search and Sort tasks via different params", response = List.class)
+    @GetMapping("/searchBy")
+    public List<TaskBean> serachByProperties(TaskSearchModel searchModel) {
+        List<Task> tasks = taskService.getTasks(searchModel);
         List<TaskBean> taskBeans = new ArrayList<>(tasks.size());
         for (Task task : tasks) {
             taskBeans.add(taskMapperFacade.getTaskBean(task));
