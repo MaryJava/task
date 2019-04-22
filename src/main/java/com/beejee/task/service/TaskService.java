@@ -25,6 +25,6 @@ public interface TaskService {
 
     List<Task> findAllPageable(Pageable pageable);
 
-    List<Task> sortListByParam();
+    List<Task> sortListByParam(String sortParam);
 
 }

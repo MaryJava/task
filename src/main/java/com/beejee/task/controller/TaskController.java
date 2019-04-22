@@ -93,8 +93,19 @@ public class TaskController {
 
     @ApiOperation(value = "Search and Sort tasks via different params", response = List.class)
     @GetMapping("/searchBy")
-    public List<TaskBean> serachByProperties(TaskSearchModel searchModel) {
+    public List<TaskBean> serachByParams(TaskSearchModel searchModel) {
         List<Task> tasks = taskService.getTasks(searchModel);
+        List<TaskBean> taskBeans = new ArrayList<>(tasks.size());
+        for (Task task : tasks) {
+            taskBeans.add(taskMapperFacade.getTaskBean(task));
+        }
+        return taskBeans;
+    }
+
+    @ApiOperation(value = "Sort tasks via specified param", response = List.class)
+    @GetMapping("/sortBy")
+    public List<TaskBean> sortByParams(String sortParam) {
+        List<Task> tasks = taskService.sortListByParam(sortParam);
         List<TaskBean> taskBeans = new ArrayList<>(tasks.size());
         for (Task task : tasks) {
             taskBeans.add(taskMapperFacade.getTaskBean(task));

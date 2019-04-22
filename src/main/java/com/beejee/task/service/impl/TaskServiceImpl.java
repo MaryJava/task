@@ -76,8 +76,8 @@ public class TaskServiceImpl implements TaskService {
 
     // TODO implement
     @Override
-    public List<Task> sortListByParam() {
-        return null;
+    public List<Task> sortListByParam(String sortParam) {
+        return taskRepository.findAll(Sort.by(Sort.Direction.ASC, sortParam));
     }
 
 
