@@ -31,12 +31,12 @@ public class TaskRepositoryCustomImpl implements TaskRepositoryCustom {
     }
 
 
-    /*@Override
+   /* @Override
     public List<Task> getTasks(TaskSearchModel searchModel) {
 
         QTask qTask = QTask.task;
         JPAQuery query = new JPAQuery(entityManager);
-        query.from((EntityPath<?>) qTask);
+        query.from(qTask);
         addQueryConditions(searchModel, qTask, query);
 
         if (searchModel.getFirst() != null) {

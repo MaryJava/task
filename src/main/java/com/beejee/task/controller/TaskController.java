@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,9 +30,17 @@ public class TaskController {
 
     @ApiOperation(value = "Add a Task")
     @PostMapping("")
-    public TaskBean createUser(@ApiParam(value = "Create Task object", required = true) @RequestBody TaskBean taskBean) {
+    public TaskBean createTask(@ApiParam(value = "Create Task object", required = true) @RequestBody TaskBean taskBean) {
         Task task = taskService.create(taskMapperFacade.getTask(taskBean));
         return taskMapperFacade.getTaskBean(task);
+    }
+
+    @ApiOperation(value = "Add a Task with image")
+    @PostMapping("/taskwithimage")
+    public TaskBean createTaskWithImage(TaskBean taskBean) throws IOException {
+        Task task = taskMapperFacade.getTaskWithImage(taskBean);
+        Task createdTask = taskService.create(task);
+        return taskMapperFacade.getTaskBean(createdTask);
     }
 
     @ApiOperation(value = "Update a Task specified id")
@@ -69,7 +78,7 @@ public class TaskController {
         return taskBeans;
     }
 
-    @GetMapping("/aaa")
+    @GetMapping("/listwithpagination")
     public List<TaskBean> allTasksList(Pageable pageable) {
         List<Task> tasks = taskService.findAllPageable(pageable);
         List<TaskBean> taskBeans = new ArrayList<>(tasks.size());

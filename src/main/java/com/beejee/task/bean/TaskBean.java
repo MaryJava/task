@@ -3,6 +3,7 @@ package com.beejee.task.bean;
 import com.beejee.task.bean.validator.ValidateOnCreate;
 import com.beejee.task.bean.validator.ValidateOnUpdate;
 import com.beejee.task.model.Status;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -21,6 +22,8 @@ public class TaskBean implements Serializable {
     private String body;
 
     private Status status;
+
+    private MultipartFile file;
 
     private Date createdAt;
 
@@ -56,6 +59,14 @@ public class TaskBean implements Serializable {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    public void setFile(MultipartFile file) {
+        this.file = file;
     }
 
     public Date getCreatedAt() {

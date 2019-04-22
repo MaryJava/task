@@ -13,6 +13,11 @@ public class TaskDataWriter {
     private TaskService taskService;
 
     public void insertData() {
+        Task task1 = createTaskObj("Test subject 1", "Test body 1", Status.OPEN);
+        taskService.create(task1);
+
+        Task task2 = createTaskObj("Test subject 2", "Test body 2", Status.IN_PROGRESS);
+        taskService.create(task2);
     }
 
     private Task createTaskObj(String subject, String body, Status status) {
