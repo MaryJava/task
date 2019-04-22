@@ -75,11 +75,11 @@
             <version>4.2.1</version>
         </dependency>
 
-      <!--  <dependency>
-            <groupId>com.querydsl</groupId>
-            <artifactId>querydsl-jpa</artifactId>
-            <version>4.2.1</version>
-        </dependency>-->
+        <!--  <dependency>
+              <groupId>com.querydsl</groupId>
+              <artifactId>querydsl-jpa</artifactId>
+              <version>4.2.1</version>
+          </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/com.mysema.querydsl/querydsl-jpa -->
         <dependency>
@@ -105,7 +105,6 @@
 
     <build>
         <plugins>
-
             <plugin>
                 <groupId>com.mysema.maven</groupId>
                 <artifactId>apt-maven-plugin</artifactId>
@@ -117,13 +116,11 @@
                         </goals>
                         <configuration>
                             <outputDirectory>src/main/generated</outputDirectory>
-                            <!--<outputDirectory>target/generated-sources/java</outputDirectory>-->
                             <processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

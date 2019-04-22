@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @SpringBootTest(classes = TaskAppApplicationTests.class)
-@TestPropertySource(locations = "classpath:application.properties")
+@TestPropertySource(locations = "classpath:application_test.properties")
 public class BaseServiceIntegrationTest extends AbstractTransactionalJUnit4SpringContextTests {
 
     @PersistenceContext

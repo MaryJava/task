@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.PostConstruct;
 
 @Component
-@Lazy
+@Lazy(value = false)
 public class IntegrationTestsDataSetup {
 
     @Autowired

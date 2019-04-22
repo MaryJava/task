@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @ComponentScan("com.beejee.task")
 @EntityScan("com.beejee.task")
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "com.beejee.task")
+@EnableJpaRepositories(repositoryImplementationPostfix = "CustomImpl", basePackages = "com.beejee.task")
 public class TaskAppApplicationTests {
 
     public static void main(String[] args) {
