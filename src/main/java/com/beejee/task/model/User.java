@@ -11,10 +11,10 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
-@EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, allowGetters = true)
-@Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+//@Entity
+//@EntityListeners(AuditingEntityListener.class)
+//@JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, allowGetters = true)
+//@Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {
 
     // TODO
@@ -23,7 +23,7 @@ public class User {
     // roles: ADMIN, USER
 
 
-    @Id
+   /* @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -104,5 +104,5 @@ public class User {
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
-    }
+    }*/
 }

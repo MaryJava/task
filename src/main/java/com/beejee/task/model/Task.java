@@ -23,12 +23,12 @@ public class Task {
 
     private String body;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+   /* @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private User user;
+    private User user;*/
 
     @Lob
-    @Column(columnDefinition = "mediumblob")
+    //@Column(columnDefinition = "mediumblob")
     private byte[] image;
 
     @Column(nullable = false)
@@ -73,13 +73,13 @@ public class Task {
     }
 
 
-    public User getUser() {
+   /* public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
-    }
+    }*/
 
     public Status getStatus() {
         return status;
