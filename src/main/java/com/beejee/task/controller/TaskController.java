@@ -20,7 +20,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/tasks")
-@Api(value = "Task Management System", description = "Operations pertaining to task in Task Management System")
+@Api(value = "Task Management System", description = "Operations pertaining to task in Task Management System.\n There are two users: user with 456 passwor and admin with 123 password.\n Admin has full access. User can only read data.")
 
 public class TaskController {
 
